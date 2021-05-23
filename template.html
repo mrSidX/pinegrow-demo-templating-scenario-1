@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Edit Users</title>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body style="background: linear-gradient(90deg, rgba(48, 67, 82, 0.43) 0%, rgba(215, 210, 204, 0.59) 100%); background-image: url('https://images.freecreatives.com/wp-content/uploads/2016/08/3d-textures.jpg'); margin: 22px;">
+        <div style="text-align: center; position: sticky;">
+            <a href="/editMyFilms">Edit My Films</a>
+            <h2 spellcheck="false" data-medium-editor-element="true" role="textbox" aria-multiline="true" data-medium-editor-editor-index="1" medium-editor-index="b0f6d8a1-33e7-8ff2-999a-7d812bbb6432" data-placeholder="Type your text" data-medium-focused="true" style="text-shadow: 0px -1px 11px #d3d3d3 , -3px 1px 1px #000000; background: linear-gradient(90deg, #232526, #414345); color: #b8b8b8;">View and Edit Usacaers</h2>
+        </div>
+        <div class="container">
+</div>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+        {{status}}
+        <br>
+        <h2 style="font-family: Aclonica; text-align: center; position: sticky; top: -; margin-top: -24px; z-index: 10;"></h2>
+        {{#payload}}
+        <div class="">
+            <a name="{{user}}"></a>
+            <form action="/editUsers" method="POST" style="border-width: 3px; border-style: solid; background-image: linear-gradient(90deg, #C9FFBF, #FFAFBD); box-shadow: -3px 1px 25px 1px;">
+                <input name="_id" type="hidden" value="{{_id}}"/>
+                <input name="last_user_edited" type="hidden" value="{{user}}"/>
+                ID / Email: {{_id}}
+                <br>
+                Password: 
+                <input name="password" type="text" value="{{password}}"/>
+                <br>
+                USERTYPE:
+                <br>
+                Is Active: 
+                <input name="usertype.active" type="checkbox" {{#usertype.active}} checked {{ usertype.active}}/>
+                <br>
+                Is Director: 
+                <input name="usertype.director" type="checkbox" {{#usertype.director}} checked {{ usertype.director}}/>
+                <br>
+                Is Judge: 
+                <input name="usertype.judge" type="checkbox" {{#usertype.judge}} checked {{ usertype.judge}}/>
+                <br>
+                Is Admin: 
+                <input name="usertype.admin" type="checkbox" {{#usertype.admin}} checked {{ usertype.admin}}/>
+                <br>
+                <br>User Privileges:
+                <br>
+                Can View Users: 
+                <input name="privileges.view_users" type="checkbox" {{#privileges.view_users}} checked {{ privileges.view_users}}/>
+                Can Edit Users: 
+                <input name="privileges.edit_users" type="checkbox" {{#privileges.edit_users}} checked {{ privileges.edit_users}}/> 
+                Can View User Films: 
+                <input name="privileges.view_films" type="checkbox" {{#privileges.view_films}} checked {{ privileges.view_films}}/> 
+                Can Edit User Films: 
+                <input name="privileges.edit_films" type="checkbox" {{#privileges.edit_films}} checked {{ privileges.edit_films}}/>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+        {{/payload}}
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/popper.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>
